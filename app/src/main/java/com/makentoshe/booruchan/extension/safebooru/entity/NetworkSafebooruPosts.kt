@@ -36,7 +36,7 @@ data class NetworkSafebooruPost(
     @SerialName("score")
     val score: Int?,
     @SerialName("tags")
-    val tags: String,
+    val tagsString: String,
     @SerialName("width")
     val width: Int,
 ) : NetworkPost {
@@ -49,4 +49,7 @@ data class NetworkSafebooruPost(
 
     override val previewImageWidth: Int
         get() = sampleWidth
+
+    override val tags: List<String>
+        get() = tagsString.split(" ")
 }
